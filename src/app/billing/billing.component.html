@@ -1,0 +1,19 @@
+<h2>
+  billing works!
+</h2>
+
+<div class="content">
+  <div class="row">
+    <p-tabView>
+        <p-tabPanel header="Invoices" leftIcon="pi pi-inbox">
+            <app-invoice-list></app-invoice-list>
+        </p-tabPanel>
+        <p-tabPanel header="Inquiries" leftIcon="pi pi-list">
+            <app-inquiry-list></app-inquiry-list>
+        </p-tabPanel>
+        <p-tabPanel header="Payments" leftIcon="pi pi-dollar" rightIcon="pi pi-star">
+            <app-payment-list></app-payment-list>
+        </p-tabPanel>
+    </p-tabView>
+  </div>
+</div>
