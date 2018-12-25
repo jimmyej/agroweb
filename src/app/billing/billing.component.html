@@ -1,19 +1,21 @@
-<h2>
+<h5>
   billing works!
-</h2>
+</h5>
 
-<div class="content">
+<div class="content" style="width: 1140px;">
   <div class="row">
-    <p-tabView>
-        <p-tabPanel header="Invoices" leftIcon="pi pi-inbox">
-            <app-invoice-list></app-invoice-list>
-        </p-tabPanel>
-        <p-tabPanel header="Inquiries" leftIcon="pi pi-list">
-            <app-inquiry-list></app-inquiry-list>
-        </p-tabPanel>
-        <p-tabPanel header="Payments" leftIcon="pi pi-dollar" rightIcon="pi pi-star">
-            <app-payment-list></app-payment-list>
-        </p-tabPanel>
-    </p-tabView>
+    <div class="col col-sm">
+        <p-tabView>
+            <p-tabPanel header="Invoices" leftIcon="pi pi-inbox">
+                <app-invoice-list></app-invoice-list>
+            </p-tabPanel>
+            <p-tabPanel header="Inquiries" leftIcon="pi pi-list">
+                <app-inquiry-list></app-inquiry-list>
+            </p-tabPanel>
+            <p-tabPanel header="Payments" leftIcon="pi pi-dollar" rightIcon="pi pi-star">
+                <app-payment-list></app-payment-list>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
   </div>
 </div>

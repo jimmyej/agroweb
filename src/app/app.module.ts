@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TabViewModule } from 'primeng/tabview';
 import { TableModule } from 'primeng/table';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { TooltipModule } from 'primeng/tooltip';
 
 import { AppComponent } from './app.component';
 import { BillingComponent } from './billing/billing.component';
@@ -33,7 +34,8 @@ import { InvoiceService } from './billing/invoices/invoice.service';
     BrowserAnimationsModule,
     TabViewModule,
     TableModule,
-    MultiSelectModule
+    MultiSelectModule,
+    TooltipModule
   ],
   providers: [InvoiceService],
   bootstrap: [AppComponent]

@@ -3,16 +3,26 @@
 </p>
 
 <div class="row">
-  <p-table #dt [columns]="selectedColumns" [(selection)]="selectedColumns" [columns]="cols" [value]="invoices" selectionMode="multiple" [scrollable]="true" [style]="{width:'100%'}" [paginator]="true" [rows]="10" sortMode="multiple">
+  <p-table #dt [columns]="selectedColumns" [(selection)]="selectedColumns" [columns]="cols" [value]="invoices" selectionMode="multiple" [scrollable]="true" [ngClass]="'table'" [paginator]="true" [rows]="10" sortMode="multiple" [loading]="loading" [lazy]="true" (onLazyLoad)="loadInvoicesLazy($event)" [totalRecords]="totalRecords">
       <ng-template pTemplate="caption">
-        <div style="text-align:left">
-            <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"
-            selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}" defaultLabel="Choose Columns"></p-multiSelect>
-            <div class="ui-helper-clearfix">
-                <button type="button" class="pi pi-download" iconPos="left" label="All Data" (click)="dt.exportCSV()" style="float:left"></button>
-                <button type="button" class="pi pi-file" iconPos="left" label="Selection Only" (click)="dt.exportCSV({selectionOnly:true})" style="float:right"></button>
+        <div class="row">
+            <div class="col-sm" style="text-align:left">
+                <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"
+                selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}" defaultLabel="Choose Columns"></p-multiSelect>
             </div>
-          </div>
+            <div class="col-sm" style="text-align:right">
+                <button type="button" class="btn btn-dark pi pi-refresh" label="Refresh" style="margin-right: 5px;" pTooltip="Refresh" tooltipPosition="bottom"></button>
+                <button type="button" class="btn btn-dark pi pi-filter" label="Filter" style="margin-right: 5px;" pTooltip="Filter" tooltipPosition="bottom"></button>
+
+                <button type="button" class="btn btn-dark pi pi-file" label="Selection Only" (click)="dt.exportCSV({selectionOnly:true})" style="margin-right: 5px;" pTooltip="Download selected rows" tooltipPosition="bottom"></button>
+                <button type="button" class="btn btn-dark pi pi-download" label="All Data" (click)="dt.exportCSV()" style="margin-right: 5px;" pTooltip="Download all rows" tooltipPosition="bottom"></button>
+
+            </div>
+        </div>
+        <div style="text-align:left">
+        </div>
+        <div class="ui-helper-clearfix">
+        </div>
       </ng-template>
       <ng-template pTemplate="colgroup" let-columns>
           <colgroup>
