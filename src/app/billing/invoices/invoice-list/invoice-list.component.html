@@ -3,7 +3,10 @@
 </p>
 
 <div class="row">
-  <p-table #dt [columns]="selectedColumns" [(selection)]="selectedColumns" [columns]="cols" [value]="invoices" selectionMode="multiple" [scrollable]="true" [ngClass]="'table'" [paginator]="true" [rows]="10" sortMode="multiple" [loading]="loading" [lazy]="true" (onLazyLoad)="loadInvoicesLazy($event)" [totalRecords]="totalRecords">
+  <p-table #dt [columns]="selectedColumns" [(selection)]="selectedColumns" [columns]="cols" 
+            [value]="invoices" selectionMode="multiple" [scrollable]="true" [ngClass]="'table'" 
+            [paginator]="true" [rows]="10" sortMode="multiple" [loading]="loading" [lazy]="true" 
+            (onLazyLoad)="loadInvoicesLazy($event)" [totalRecords]="totalRecords">
       <ng-template pTemplate="caption">
         <div class="row">
             <div class="col-sm" style="text-align:left">
