@@ -3,9 +3,10 @@
 </p>
 
 <div class="row">
-  <p-table #dt [columns]="selectedColumns" [(selection)]="selectedColumns" [columns]="cols" 
-            [value]="invoices" selectionMode="multiple" [scrollable]="true" [ngClass]="'table'" 
-            [paginator]="true" [rows]="10" sortMode="multiple" [loading]="loading" [lazy]="true" 
+  <p-table #dt [columns]="selectedColumns" [(selection)]="selectedColumns"
+            [value]="invoices" (sortFunction)="customSort($event)" [customSort]="true"
+            selectionMode="multiple" [scrollable]="true" [ngClass]="'table'" 
+            [paginator]="true" [rows]="10" [loading]="loading" [lazy]="true" 
             (onLazyLoad)="loadInvoicesLazy($event)" [totalRecords]="totalRecords">
       <ng-template pTemplate="caption">
         <div class="row">
@@ -36,7 +37,7 @@
           <tr>
               <th *ngFor="let col of columns" [pSortableColumn]="col.field">
                   {{col.header}}
-                  <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                  <p-sortIcon [field]="col.field"></p-sortIcon>
               </th>
           </tr>
       </ng-template>
